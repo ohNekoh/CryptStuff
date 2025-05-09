@@ -1,22 +1,33 @@
 import re
 
 # PREFISSI LETTERE (DEV'ESSERE COMBACIANTE CON I PREFISSI DEL PRIMO CODICE)
-prefix_map = {
-    1: "UTdIO",
-    2: "IROES",
-    3: "ARIOD",
-    4: "ITOR",
-    5: "IORE",
-    6: "IYTRW",
-    7: "OTPET",
-    8: "ITHKF",
-    9: "JGEKW",
-    10: "JFKETO",
-    11: "FIOEW",
-    12: "TEODF",
-    13: "RORPE",
-    14: "IROFS",
-}
+
+
+# token: UTdIROARIITOIORIYTOTPITHJGEJFKFIOTEORORIRO
+
+token = input("Inserisci il token: ")
+try:
+    prefix_map = {
+        1: token[0:3],
+        2: token[3:6],
+        3: token[6:9],
+        4: token[9:12],
+        5: token[12:15],
+        6: token[15:18],
+        7: token[18:21],
+        8: token[21:24],
+        9: token[24:27],
+        10: token[27:30],
+        11: token[30:33],
+        12: token[33:36],
+        13: token[36:39],
+        14: token[39:42],
+    }
+except IndexError as ex:
+    print("Token invalido.")
+
+
+
 prefix_list = list(prefix_map.values()) + ["EXTRA"] # aggiunge il prefisso extra per le parole che superano i 14 caratteri (non dev'essere per forza EXTRA, ma dei caratteri casuali come per le altre lettere)
 
 def decrypt_message():
